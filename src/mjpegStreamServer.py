@@ -28,17 +28,17 @@ class RingBuffer(threading.Thread):
     def get(self):
         return self.data[-1]
 
-""" The ImageProcessor class is a singletion implementation that wraps the
+""" The ImageProcessor class is a singleton implementation that wraps the
     interface of the Raspicam """
 class ImageProcessor(threading.Thread):
     
     instance = None
 
-    # Helper class for the singletion instance.
+    # Helper class for the singleton instance.
     class ImageProcessorHelper():
         def __call__(self, *args, **kw):
-            # If an instance of Singleton does not exist,
-            # create one and assign it to Singleton.instance
+            # If an instance of singleton does not exist,
+            # create one and assign it to singleton.instance
             if ImageProcessor.instance is None:
                 ImageProcessor.instance = ImageProcessor()
             return ImageProcessor.instance
